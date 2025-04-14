@@ -2,8 +2,9 @@ from rest_framework import serializers
 from company.models import Company  # Импорт модели Company, а не Article
 
 class CompanySerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(max_length=100)
-    sector = serializers.ChoiceField(choices=Company.SECTOR_CHOICES)
+    # sector = serializers.ChoiceField(choices=Company.SECTOR_CHOICES)
     inn = serializers.CharField(max_length=12)
     founded_date = serializers.DateField(required=False, allow_null=True)
     localisation = serializers.CharField()

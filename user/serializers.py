@@ -3,6 +3,7 @@ from user.models import User
 
 
 class UserSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
     first_name = serializers.CharField(max_length=50)
     last_name = serializers.CharField(max_length=50)
     email = serializers.EmailField()
