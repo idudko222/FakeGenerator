@@ -12,7 +12,7 @@ class UserList(APIView):
         users = User.objects.all()
 
         paginator = PageNumberPagination()
-        paginator.page_size = PageNumberPagination()
+       # paginator.page_size = 10
 
         result_page = paginator.paginate_queryset(users, request)
         serializer = UserSerializer(result_page, many=True)

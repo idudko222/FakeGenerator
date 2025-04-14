@@ -11,7 +11,7 @@ class CompanyList(APIView):
         companies = Company.objects.all()
 
         paginator = PageNumberPagination()
-        paginator.page_size = PageNumberPagination()
+        # paginator.page_size = 10
 
         result_page = paginator.paginate_queryset(companies, request)
         serializer = CompanySerializer(result_page, many=True)

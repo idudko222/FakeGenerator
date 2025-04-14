@@ -11,7 +11,7 @@ class ArticleList(APIView):
         articles = Article.objects.all()
 
         paginator = PageNumberPagination()
-        paginator.page_size = PageNumberPagination()
+        # paginator.page_size = 10
 
         result_page = paginator.paginate_queryset(articles, request)
         serializer = ArticleSerializer(result_page, many=True)
