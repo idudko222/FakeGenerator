@@ -23,7 +23,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         count = options['count']
         lang = options['lang']
-        tag_choices = [tag[0] for tag in Article.TAG_CHOICES]
         try:
             fake = Faker(lang)
         except AttributeError:
@@ -37,7 +36,6 @@ class Command(BaseCommand):
                 title=fake.sentence(nb_words=6),  # Заголовок из 6 слов
                 content=fake.text(max_nb_chars=1000),  # Текст до 1000 символов
                 localisation=lang,
-               # tag=fake.random_element(elements=tag_choices),
                 published_at=fake.date_time_this_year()
             )
 
